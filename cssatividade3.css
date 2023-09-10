@@ -1,0 +1,43 @@
+.fundoPAI {
+
+    background-color: rgb(195, 155, 232);
+    width: 1000px;
+    height: 200px;
+}
+
+.fundoFILHA {
+
+    background-color: rgb(163, 176, 242);
+    width: 400px;
+    height: 450px;
+}
+
+.fundoFILHA p {
+
+    color: beige;
+    background-color: blueviolet;
+    font-size: 20px;
+    font-family: fantasy;
+    font-weight: lighter;
+}
+
+.fundoFILHOB {
+
+    background-color: rgb(36, 0, 70);
+    width: 180%;
+    height: 90vh;
+}
+
+.fundoFILHOB2 {
+
+    background-color: rgb(107, 88, 126);
+    width: 15vh;
+    height: 600px;
+}
+
+h2 {
+
+    color: rgb(115, 2, 221);
+    font-family: fantasy;
+    font-weight: inherit;
+}
