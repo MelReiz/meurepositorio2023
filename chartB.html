@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Implementando gráfico do ChartJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <center>
+        <div>
+            <h3 style="color: orange; font-family: Verdana, Geneva, Tahoma, sans-serif" class="titulo"> MÉDIA DE TEMPERATURA E UMIDADE</h3><br>
+        </div>
+        <div class="grafico">
+            <canvas id="meuGrafico"></canvas>
+        </div>
+    </center>
+    <style>
+
+        body {
+            background-color: white;
+        }
+        .grafico {
+            display: flex;
+            width: 600px;
+            background-color: white;
+            margin-top: 100px;
+        }
+    </style>
+    <script>
+        Chart.defaults.locale = 'pt-BR';
+        const dadosTemp = [22, 24, 27, 23, 20, 18];
+        const dadosUmidade = [90, 89, 93, 87, 88, 82];
+        const rotulos = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'];
+
+        const ctx = document.getElementById('meuGrafico').getContext('2d');
+        const meuGrafico = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: rotulos,
+                datasets: [
+                    {
+                        label: 'Temperatura Média',
+                        data: dadosTemp,
+                        borderColor: 'orange',
+                        backgroundColor: 'orange',
+                    },
+                    {
+                        label: 'Umidade Média',
+                        data: dadosUmidade,
+                        borderColor: 'pink',
+                        backgroundColor: 'pink',
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
