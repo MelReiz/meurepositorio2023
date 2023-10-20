@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Implementando gráfico do ChartJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="ativiChart.css">
+</head>
+
+<body>
+    <center class="estrutura">
+        <nav>
+            <h3>Gráficos ChartJs por Melissa<br>
+                - Pesquisa e Inovação -</h3>
+        </nav>
+        <section>
+            <div class="div_graf">
+                <div class="grafico">
+                    <canvas id="GraficoTempUmi"></canvas>
+                </div>
+
+                <div class="grafico">
+                    <canvas id="meuGrafico"></canvas>
+                </div>
+            </div>
+        </section>
+    </center>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        .grafico {
+            display: flex;
+            width: 600px;
+            background-color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-top: 150px;
+        }
+    </style>
+    <script>
+        Chart.defaults.locale = 'pt-BR';
+        const dadosTemp1 = [30, 29, 28, 25, 22, 23];
+        const dadosUmidade1 = [80, 82, 80, 85, 80, 83];
+        const rotulos1 = ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
+
+        const ctx1 = document.getElementById('GraficoTempUmi').getContext('2d');
+        const GraficoTempUmi = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: rotulos1,
+                datasets: [
+                    {
+                        label: 'Temperatura',
+                        data: dadosTemp1,
+                        borderColor: '#EA307B',
+                        backgroundColor: '#EA307B',
+                    },
+                    {
+                        label: 'Umidade',
+                        data: dadosUmidade1,
+                        borderColor: '#FFB20C',
+                        backgroundColor: '#FFB20C',
+                    }
+                ]
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Linha'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+        Chart.defaults.locale = 'pt-BR';
+        const dadosTemp = [22, 24, 27, 23, 20, 18];
+        const dadosUmidade = [90, 89, 93, 87, 88, 82];
+        const rotulos = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'];
+
+        const ctx = document.getElementById('meuGrafico').getContext('2d');
+        const meuGrafico = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: rotulos,
+                datasets: [
+                    {
+                        label: 'Temperatura Média',
+                        data: dadosTemp,
+                        borderColor: 'orange',
+                        backgroundColor: 'orange',
+                    },
+                    {
+                        label: 'Umidade Média',
+                        data: dadosUmidade,
+                        borderColor: 'pink',
+                        backgroundColor: 'pink',
+                    }
+                ]
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Barras'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
